@@ -1,3 +1,22 @@
+#  修改内容
+仅对[TyomaVader版本的ImGui弹窗源码](https://github.com/DreamSoule/ImGuiNotify)添加设置图标字体功能, 使弹窗标题及内容可以用其他字体显示<br>
+(只改了win32里的文件, unix里面的文件和win32原版内容一样懒得再传一遍了)
+> 初始化图标字体:
+```cpp
+#include "ImGui/fa_solid_900.h"
+#include "ImGui/ImGuiNotify.hpp"
+
+io.Fonts->AddFontDefault();
+float baseFontSize = 16.0f; // Default font size
+float iconFontSize = baseFontSize * 2.0f / 3.0f; // FontAwesome fonts need to have their sizes reduced
+static const ImWchar iconsRanges[] = { ICON_MIN_FA, ICON_MAX_16_FA, 0 };
+ImFontConfig iconsConfig;
+iconsConfig.MergeMode = true;
+iconsConfig.PixelSnapH = true;
+iconsConfig.GlyphMinAdvanceX = iconFontSize;
+ImFont* font_ImGuiNotify_Icon = io.Fonts->AddFontFromMemoryTTF((void*)fa_solid_900, sizeof(fa_solid_900), iconFontSize, &iconsConfig, iconsRanges);
+ImGui::SetNotificationIconFont(font_ImGuiNotify_Icon);
+```
 #  ImGuiNotify
 Is a header-only wrapper made to create notifications with [Dear ImGui](https://github.com/ocornut/imgui). Fork of [imgui-notify](https://github.com/patrickcjk/imgui-notify) by [patrickcjk](https://github.com/patrickcjk).
 
