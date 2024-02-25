@@ -138,6 +138,7 @@ ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.f); // Disable borders
 
 // Notifications color setup
 ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.10f, 0.10f, 0.10f, 1.00f)); // Background color
+ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.F, 0.F, 0.F, 0.F)); // Button Background color
 
 
 // Main rendering function
@@ -148,7 +149,7 @@ ImGui::RenderNotifications();
 // Argument MUST match the amount of ImGui::PushStyleVar() calls 
 ImGui::PopStyleVar(2);
 // Argument MUST match the amount of ImGui::PushStyleColor() calls 
-ImGui::PopStyleColor(1);
+ImGui::PopStyleColor(2);
 ```
 
 ## Showcase
