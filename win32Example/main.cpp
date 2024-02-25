@@ -251,7 +251,8 @@ int main(int, char**)
     iconsConfig.MergeMode = true;
     iconsConfig.PixelSnapH = true;
     iconsConfig.GlyphMinAdvanceX = iconFontSize;
-    io.Fonts->AddFontFromFileTTF(FONT_ICON_FILE_NAME_FAS, iconFontSize, &iconsConfig, iconsRanges);
+    ImFont* font_ImGuiNotify_Icon = io.Fonts->AddFontFromFileTTF(FONT_ICON_FILE_NAME_FAS, iconFontSize, &iconsConfig, iconsRanges);
+    ImGui::SetNotificationIconFont(font_ImGuiNotify_Icon);
 
     /**
      * FontAwesome setup END
