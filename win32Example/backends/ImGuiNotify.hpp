@@ -615,11 +615,12 @@ namespace ImGui
 						scale = 0.95f;
 					}
 
-					SetCursorPosX(GetCursorPosX() + (GetWindowSize().x - GetCursorPosX()) * scale);
+					// SetCursorPosX(GetCursorPosX() + (GetWindowSize().x - GetCursorPosX()) * scale);
 
 					// If the button is pressed, we want to remove the notification
 					auto font_backup = ImGui::GetFont();
 					ImGui::SetCurrentFont(Notification_ICON_FONT);
+					SetCursorPosX(GetWindowSize().x - ImGui::CalcTextSize(ICON_FA_XMARK).x * 3.F);
 					if (Button(ICON_FA_XMARK))
 					{
 						RemoveNotification(i);
